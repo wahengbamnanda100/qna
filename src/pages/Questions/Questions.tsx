@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Box, useTheme } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import React from "react";
 import QnATitle from "../../common/QnATitle";
 import QnAButtonGroup from "../../common/QnAButtonGroup";
 import QnAQusetionCard from "../../common/QnAQusetionCard";
+import QuestionsRightContent from "../../components/QuestionsRightContent";
 
 const questionsDetails = [
   {
@@ -106,33 +107,36 @@ const questionsDetails = [
 ];
 
 const Questions = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        p: "1.5rem",
-        maxHeight: `calc(100vh - 24px)`,
-        overflowY: "auto",
-        // scrollBehavior: "smooth",
-      }}
-    >
-      <QnATitle title="All questions" />
+    <Stack direction={"row"}>
       <Box
         sx={{
-          alignSelf: "flex-end",
-          paddingTop: "2rem",
-          paddingBottom: "1rem",
+          display: "flex",
+          flexDirection: "column",
+          width: "70%",
+          p: "1.5rem",
         }}
       >
-        <QnAButtonGroup />
-      </Box>
+        <QnATitle title="All questions" />
+        <Box
+          sx={{
+            alignSelf: "flex-end",
+            paddingTop: "2rem",
+            paddingBottom: "1rem",
+          }}
+        >
+          <QnAButtonGroup />
+        </Box>
 
-      {questionsDetails.map((question: any) => (
-        <QnAQusetionCard key={question} data={question} />
-      ))}
-    </Box>
+        {questionsDetails.map((question: any) => (
+          <QnAQusetionCard key={question} data={question} />
+        ))}
+      </Box>
+      <Box sx={{ width: "30%" }}>
+        <QuestionsRightContent />
+      </Box>
+    </Stack>
   );
 };
 

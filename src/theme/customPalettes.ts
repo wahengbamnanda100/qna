@@ -4,9 +4,9 @@ export const defaultPalette: PaletteOptions = {
   mode: "light",
   primary: {
     // light: "#E7F6FF",
-    light: "#d55448",
-    main: `#9a2819`,
-    dark: "#aa3023",
+    light: "#F06E6D",
+    main: `#D30F1C`,
+    dark: "#C5000C",
     contrastText: "#ffffff",
   },
   secondary: {

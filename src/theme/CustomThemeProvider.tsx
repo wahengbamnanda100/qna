@@ -8,25 +8,25 @@ import { defaultTheme } from "./defultTheme";
 type CustomThemeProviderProps = { children: React.ReactNode };
 
 const palette = {
-	default: defaultPalette,
+  default: defaultPalette,
 };
 
 const CustomThemeProvider = ({ children }: CustomThemeProviderProps) => {
-	let theme = createTheme({
-		palette: palette.default,
-		...defaultTheme,
-		components: {
-			...defaultTheme.components,
-		},
-	});
+  let theme = createTheme({
+    palette: palette.default,
+    ...defaultTheme,
+    components: {
+      ...defaultTheme.components,
+    },
+  });
 
-	theme = responsiveFontSizes(theme);
+  theme = responsiveFontSizes(theme);
 
-	return (
-		<LocalizationProvider dateAdapter={AdapterDateFns}>
-			<ThemeProvider theme={theme}>{children}</ThemeProvider>
-		</LocalizationProvider>
-	);
+  return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </LocalizationProvider>
+  );
 };
 
 export default CustomThemeProvider;

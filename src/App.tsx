@@ -38,11 +38,11 @@ const AppContent = ({ children }: { children: React.ReactNode }) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "start",
-        overflowX: "hidden",
-        width: "100vw",
-        height: "100vh",
+        // alignItems: "center",
+        // justifyContent: "start",
+        // overflowX: "hidden",
+        // width: "100vw",
+        // height: "100vh",
         bgcolor: theme.palette.secondary.main,
       }}
       ref={appRef}

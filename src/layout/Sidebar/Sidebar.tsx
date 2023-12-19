@@ -24,10 +24,15 @@ const Sidebar = () => {
       sx={{
         width: "180px",
         paddingTop: "24px",
-        height: `calc(100vh + 10px)`,
+        // height: `100vh`,
         borderRight: `1px solid ${theme.palette.grey[600]}`,
+        // position: "fixed",
+        top: 0,
+        bottom: 0,
+        overflowY: "auto",
       }}
     >
+      {/* <Toolbar /> */}
       <MenuList>
         <SideBarMenuItem>
           <ListItemText>Menu 1</ListItemText>

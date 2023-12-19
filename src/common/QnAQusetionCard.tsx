@@ -8,6 +8,8 @@ import {
   useTheme,
   Link,
   Theme,
+  lighten,
+  TypographyProps,
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
@@ -75,19 +77,17 @@ function formatTimeAgo(timestamp) {
   return date.locale("en-GB").format("MMM DD, YYYY [at] hh:mm");
 }
 
-const StyledCountText = styled(Typography)(
-  ({
-    answer,
-    varified,
-    theme,
-  }: {
-    answer?: boolean;
-    varified?: boolean;
-    theme: any;
-  }) => ({
+interface StyledCountTextProps extends TypographyProps {
+  answered?: boolean;
+  varified?: boolean;
+  theme: Theme;
+}
+
+const StyledCountText = styled(Typography)<StyledCountTextProps>(
+  ({ answered, varified, theme }: StyledCountTextProps) => ({
     width: "auto",
     textAlign: "end",
-    border: answer ? `1px solid ${theme.palette.success.main}` : `none`,
+    border: answered ? `1px solid ${theme.palette.success.main}` : `none`,
     backgroundColor: varified ? theme.palette.success.main : "none",
     paddingLeft: "0.4rem",
     paddingRight: "0.4rem",
@@ -96,7 +96,7 @@ const StyledCountText = styled(Typography)(
     flexDirection: "row",
     alignItems: "center",
     color:
-      answer && !varified
+      answered && !varified
         ? theme.palette.success.main
         : varified
           ? theme.palette.primary.contrastText
@@ -117,10 +117,20 @@ const StyledSubTitle = styled(Typography)(({ theme }) => ({
 
 // const StyledTitle = styled()
 
-const GroupTag = ({ tags }: { tags: any[] }) => (
+const GroupTag = ({ tags, theme }: { tags: any[]; theme: Theme }) => (
   <Stack direction={"row"} gap={1} justifyContent={"flex-start"} width={"100%"}>
     {tags.map((tag) => (
-      <Chip key={tag.id} color="primary" variant="filled" label={tag.tag} />
+      <Chip
+        key={tag.id}
+        variant="filled"
+        label={tag.tag}
+        sx={{
+          borderRadius: "0.2rem",
+          height: "1.4rem",
+          color: theme.palette.grey[200],
+          bgcolor: lighten(theme.palette.primary.dark, 0.3),
+        }}
+      />
     ))}
   </Stack>
 );
@@ -161,7 +171,7 @@ const QnAQusetionCard = ({ data }: { data: any }) => {
         display: "flex",
         flexDirection: "row",
         marginLeft: `-1.5rem`,
-        py: 2,
+        py: "1rem",
         borderTop: `1px solid ${theme.palette.grey[600]}`,
       }}
     >
@@ -172,12 +182,13 @@ const QnAQusetionCard = ({ data }: { data: any }) => {
         marginRight={"1.4rem"}
         alignItems={"flex-end"}
       >
-        <StyledCountText variant="subtitle2">
+        <StyledCountText theme={theme} variant="subtitle2">
           {data?.counts?.votes} votes
         </StyledCountText>
         <StyledCountText
-          answer={!!data?.counts?.answer}
+          answered={data?.counts?.answer !== 0 ? true : false}
           varified={data?.counts?.verified}
+          theme={theme}
           variant="subtitle2"
         >
           {data?.counts?.verified && (
@@ -188,7 +199,7 @@ const QnAQusetionCard = ({ data }: { data: any }) => {
           )}
           {data?.counts?.answer} answers
         </StyledCountText>
-        <StyledCountText variant="subtitle2">
+        <StyledCountText theme={theme} variant="subtitle2">
           {data?.counts?.views} views
         </StyledCountText>
       </Stack>
@@ -211,7 +222,7 @@ const QnAQusetionCard = ({ data }: { data: any }) => {
           {data?.description}
         </StyledSubTitle>
         <Stack direction={"row"} gap={1} justifyContent={"space-between"}>
-          <GroupTag tags={data?.tags} />
+          <GroupTag tags={data?.tags} theme={theme} />
           <QusetionAskDetail user={data?.userDetail} />
         </Stack>
       </Stack>

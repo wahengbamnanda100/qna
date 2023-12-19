@@ -5,7 +5,11 @@ const Footer = () => {
   const theme = useTheme();
   return (
     <Paper
-      sx={{ bgcolor: theme.palette.secondary.dark, py: "2rem", px: "2rem" }}
+      sx={{
+        bgcolor: theme.palette.secondary.dark,
+        py: "2rem",
+        px: "2rem",
+      }}
     >
       <Container>
         <Typography variant="h6" color={"primary.contrastText"}>

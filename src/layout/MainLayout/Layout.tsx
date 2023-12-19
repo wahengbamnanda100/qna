@@ -1,35 +1,28 @@
 import React from "react";
-import { Box, Container, Toolbar, useTheme } from "@mui/material";
+import { Box, Container, Toolbar } from "@mui/material";
 import CustomAppBar from "../Appbar/CustomAppBar";
 import Sidebar from "../Sidebar/Sidebar";
 import Footer from "../Footer/Footer";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   return (
-    <Box
-      sx={{
-        width: "100%",
-        bgcolor: theme.palette.secondary.main,
-        // alignItems: "start",
-        // justifyContent: "start",
-        // bgcolor: "beige",
-      }}
-    >
+    <Box>
       <CustomAppBar />
       <Toolbar />
       <Container
         sx={{
           // width: "100%",
           display: "flex",
+          flex: 1,
           flexDirection: "row",
-          justifyContent: "start",
+          overflow: "hidden",
           // bgcolor: "red",
         }}
       >
         <Sidebar />
-        <Box sx={{ width: "100%", pt: "2rem" }}>
+        <Box sx={{ width: "100%" }}>
           <Outlet />
         </Box>
       </Container>

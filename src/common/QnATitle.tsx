@@ -21,11 +21,11 @@ const QnATitle = ({ title }: { title: string }) => {
       </Typography>
 
       <Button
-        variant="outlined"
+        variant="contained"
         color="primary"
         sx={{
           textTransform: "capitalize",
-          color: "primary.contrastText",
+          //   color: "primary.contrastText",
         }}
       >
         Ask Question

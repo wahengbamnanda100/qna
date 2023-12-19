@@ -198,7 +198,7 @@ const QnAQusetionCard = ({ data }: { data: any }) => {
           underline="none"
           variant="h6"
           gutterBottom
-          onClick={() => navigate(`${location.pathname}/question/${data.id}`)}
+          onClick={() => navigate(`/question/${data.id}`)}
           sx={{
             width: "auto",
             color: "primary.contrastText",

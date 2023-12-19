@@ -7,6 +7,7 @@ import CustomThemeProvider from "./theme/CustomThemeProvider";
 import Layout from "./layout/MainLayout/Layout";
 import "./App.css";
 import Questions from "./pages/Questions/Questions";
+import Qusetion from "./pages/question/Question";
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
   const appRef = React.useRef(null);
@@ -61,6 +62,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Questions />} />
+                <Route path="/question/:id" element={<Qusetion />} />
               </Route>
             </Routes>
           </Router>

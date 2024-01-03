@@ -117,7 +117,7 @@ const StyledSubTitle = styled(Typography)(({ theme }) => ({
 
 // const StyledTitle = styled()
 
-const GroupTag = ({ tags, theme }: { tags: any[]; theme: Theme }) => (
+export const GroupTag = ({ tags, theme }: { tags: any[]; theme: Theme }) => (
   <Stack direction={"row"} gap={1} justifyContent={"flex-start"} width={"100%"}>
     {tags.map((tag) => (
       <Chip

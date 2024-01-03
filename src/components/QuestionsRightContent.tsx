@@ -1,6 +1,7 @@
 import { Box, useTheme } from "@mui/material";
+
 import QnASideArticleList from "../common/QnASideArticleList";
-import React from "react";
+import { sideArticle } from "../common/sideArticleData";
 
 const QuestionsRightContent = () => {
   const theme = useTheme();
@@ -9,7 +10,7 @@ const QuestionsRightContent = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: 1,
+        gap: 0,
         width: "100%",
         pt: "24px",
         justifyContent: "center",
@@ -17,7 +18,9 @@ const QuestionsRightContent = () => {
         color: theme.palette.primary.contrastText,
       }}
     >
-      <QnASideArticleList />
+      {sideArticle.map((data, index) => (
+        <QnASideArticleList key={index} blog={data as any} />
+      ))}
     </Box>
   );
 };

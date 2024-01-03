@@ -8,6 +8,7 @@ import Layout from "./layout/MainLayout/Layout";
 import "./App.css";
 import Questions from "./pages/Questions/Questions";
 import Qusetion from "./pages/question/Question";
+import Ask from "./pages/askQuetion/ask";
 
 const AppContent = ({ children }: { children: React.ReactNode }) => {
   const appRef = React.useRef(null);
@@ -64,6 +65,7 @@ function App() {
                 <Route index element={<Questions />} />
                 <Route path="/question/:id" element={<Qusetion />} />
               </Route>
+              <Route path="/ask" element={<Ask />} />
             </Routes>
           </Router>
         </AppContent>

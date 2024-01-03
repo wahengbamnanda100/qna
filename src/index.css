@@ -1,3 +1,38 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+.cls-3,
+.cls-6,
+.cls-7 {
+  fill: none;
+  stroke-miterlimit: 10;
+}
+.cls-3 {
+  stroke: #1060e1;
+}
+.cls-4 {
+  fill: #fff;
+}
+.cls-5 {
+  fill: #ffb935;
+}
+.cls-6 {
+  stroke: #f48024;
+}
+.cls-7 {
+  stroke: #bbc0c4;
+  stroke-dasharray: 5;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+ol {
+  word-wrap: break-word;
+  max-width: 100%;
+}

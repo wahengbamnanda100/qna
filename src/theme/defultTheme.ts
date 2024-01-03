@@ -64,6 +64,42 @@ export const defaultTheme: Omit<ThemeOptions, "palette"> = {
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          color: "#fff",
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          color: "#fff",
+          // backgroundColor: "white",
+          borderColor: "#fff",
+          "& fieldset": {
+            borderColor: "#fff", // Customize the border color
+            color: "#fff",
+          },
+          "&:hover fieldset": {
+            borderColor: "#fff", // Customize the border color on hover
+          },
+          "&.Mui-focused fieldset": {
+            borderColor: "green", // Customize the border color when focused
+          },
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          color: "#fff",
+        },
+        input: {
+          color: "#fff",
+        },
+      },
+    },
   },
   typography: {
     button: {
@@ -132,7 +168,7 @@ export const defaultTheme: Omit<ThemeOptions, "palette"> = {
       letterSpacing: "-0.01562em",
     },
     subtitle2: {
-      fontWeight: 300,
+      fontWeight: 200,
       fontSize: "0.875rem",
       lineHeight: 1.167,
       letterSpacing: "-0.01562em",

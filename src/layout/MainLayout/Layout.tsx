@@ -1,14 +1,14 @@
 import React from "react";
-import { Box, Container, Toolbar } from "@mui/material";
+import { Box, Container, Toolbar, useTheme } from "@mui/material";
 import CustomAppBar from "../Appbar/CustomAppBar";
 import Sidebar from "../Sidebar/Sidebar";
 import Footer from "../Footer/Footer";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
-  // const theme = useTheme();
+  const theme = useTheme();
   return (
-    <Box>
+    <Box sx={{ bgcolor: theme.palette.grey[900] }}>
       <CustomAppBar />
       <Toolbar />
       <Container

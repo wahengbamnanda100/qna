@@ -8,6 +8,7 @@ import AskQustion from "../../components/AskQustion";
 import { markDownText } from "../../utils/markdownText";
 import { markdownAnswer } from "../../utils/markdownAnswers";
 import StackoverflowEditor from "../../components/StackoverflowEditor";
+import Comments from "../../components/Comments";
 
 const Qusetion = () => {
   return (

@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Divider,
   IconButton,
   Stack,
   Typography,
@@ -16,6 +17,7 @@ import RestoreOutlinedIcon from "@mui/icons-material/RestoreOutlined";
 // import { markDownText } from "../utils/markdownText";
 import MarkdownRenderer from "../common/MarkdownRenderer";
 import { GroupTag } from "../common/QnAQusetionCard";
+import Comments from "./Comments";
 
 const Upvote = () => {
   const [count, setCount] = useState(0);
@@ -136,6 +138,13 @@ const AskQustion = ({ data }: any) => {
         <FullQuestion question={data} />
         <GroupTag tags={tags} theme={theme} />
         <UserOperation />
+        <Divider
+          sx={{
+            my: `1.5rem`,
+            borderBottom: `1px solid #fff`,
+          }}
+        />
+        <Comments />
       </Box>
     </Box>
   );

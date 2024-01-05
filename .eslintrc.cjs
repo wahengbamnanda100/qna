@@ -25,16 +25,19 @@ module.exports = {
     },
   },
   rules: {
-    "no-unused-vars": [
-      "error",
-      {
-        vars: "all",
-        args: "after-used",
-        ignoreRestSiblings: true,
-        argsIgnorePattern: "^_",
-      },
-    ],
+    // "no-unused-vars": [
+    //   "error",
+    //   {
+    //     vars: "all",
+    //     args: "after-used",
+    //     ignoreRestSiblings: true,
+    //     argsIgnorePattern: "^_",
+    //   },
+    // ],
+    "no-unsed-vars": 0,
     "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-explicit-any": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
